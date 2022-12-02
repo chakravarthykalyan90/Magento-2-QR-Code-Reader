@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="js/html5-qrcode.min.js"/>
+    </head>
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Sigma\Scanner\Block\Index\Index" name="test-link" after="my-account-link"/>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block name="index.index" class="Sigma\Scanner\Block\Index\Index" template="Sigma_Scanner::index/index.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

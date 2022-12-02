@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="scanner" translate="label" sortOrder="999">
+			<label>scanner</label>
+		</tab>
+		<section id="qrcodescanner" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>qrcodescanner</label>
+			<tab>scanner</tab>
+			<resource>Sigma_Scanner::config_sigma_scanner</resource>
+			<group id="options" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>options</label>
+				<field id="enable" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>enable</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+		<section id="nfccodescanner" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>nfccodescanner</label>
+			<tab>scanner</tab>
+			<resource>Sigma_Scanner::config_sigma_scanner</resource>
+			<group id="options" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>options</label>
+				<field id="enable" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>enable</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

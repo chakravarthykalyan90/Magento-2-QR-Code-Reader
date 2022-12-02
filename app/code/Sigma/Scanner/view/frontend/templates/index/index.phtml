@@ -1,0 +1,47 @@
+<div id="modal-content">
+    <div style="margin: 0 auto;" id="reader"></div>
+</div>
+<script>
+    const html5QrCode = new Html5Qrcode("reader");
+    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        console.log(`Scan result: ${decodedText}`, decodedResult);
+    };
+    const config = { fps: 2, qrbox: { width: 350, height: 350 } };
+
+    // If you want to prefer back camera
+
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'QR Code Scanner',
+                buttons: [{
+                    text: $.mage.__('OK'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }],
+                closed: function() {
+                    html5QrCode.stop();
+                }
+        };
+
+            var popup = modal(options, $('#modal-content'));
+            $("#scanner-popup,#scanner-popup_mobile").on('click',function(){
+                $('#modal-content').modal('openModal');
+                html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+            });
+
+        }
+    );
+</script>
